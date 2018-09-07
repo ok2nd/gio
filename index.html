@@ -1,26 +1,27 @@
-<html lang="ja">
+<!DOCTYPE html>
+<html>
 <head>
+<title>Gio.jsの基本サンプル</title>
 <meta charset="utf-8">
-<meta name="author" content="ok.2nd">
-<title>Gio.js テスト</title>
-<script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
-<script>
-	var container = document.getElementById("globalArea");
-	var controller = new GIO.Controller(container);
-	controller.init();
-</script>
-<style>
-#globalArea {
-	width:800px;
-	height:420px;
-}
-</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<h1>Gio.js テスト</h1>
+<div id="globalArea" style="width:1000px;height:700px"></div>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/assets/data/sampleData.js"></script>
+<script>
+	var container = document.getElementById( "globalArea" );
+	var controller = new GIO.Controller( container );
 
-<div id="globalArea"></div>
+	controller.addData( data );
+	controller.init();
 
+	//データの指定方法としてはサーバーからJSON形式のデータを読み込むことも可能
+	// controller.addDataAsync('/data/sampleData.json', function() {
+	//		 controller.init();
+	// })
+</script>
 </body>
 </html>
