@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>日本の国別輸出入・上位10ヵ国（2017年）</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>日本の国別輸出入・上位10ヵ国（2017年）</h1>
+<p><a href="http://www.jftc.or.jp/kids/kids_news/japan/country.html" target="_blank">by 日本の主な貿易相手国 | JFTC キッズサイト</a></p>
+<div id="globalArea" style="width:1000px;height:800px"></div>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
+<script>
+var container = document.getElementById( "globalArea" );
+var config = {
+	"control": {
+		"stats": false,
+		"disableUnmentioned": false,
+		"lightenMentioned": true,
+		"inOnly": false,
+		"outOnly": false,
+		"initCountry": "JP",
+		"halo": true
+	},
+	"color": {
+		"surface": 1744048,
+		"selected": 2141154,
+		"in": 16765762,
+		"out": 5366382,
+		"halo": 2141154,
+		"background": 0
+	},
+	"brightness": {
+		"ocean": 0.95,
+		"mentioned": 0.28,
+		"related": 0.74
+	}
+};
+var data= [
+// 輸出
+	{ e: "JP", i: "US", v: 1511000 },	// アメリカ
+	{ e: "JP", i: "CN", v: 1488000 },	// 中国
+	{ e: "JP", i: "KR", v: 597000 },	// 韓国
+	{ e: "JP", i: "TW", v: 455000 },	// 台湾
+	{ e: "JP", i: "HK", v: 397000 },	// 香港
+	{ e: "JP", i: "TH", v: 330000 },	// タイ
+	{ e: "JP", i: "SG", v: 254000 },	// シンガポール
+	{ e: "JP", i: "DE", v: 212000 },	// ドイツ
+	{ e: "JP", i: "AU", v: 179000 },	// オーストラリア
+	{ e: "JP", i: "VN", v: 168000 },	// ベトナム
+// 輸入
+	{ e: "CN", i: "JP", v: 1845000 },	// 中国
+	{ e: "US", i: "JP", v: 809000 },	// アメリカ
+	{ e: "AU", i: "JP", v: 436000 },	// オーストラリア
+	{ e: "KR", i: "JP", v: 315000 },	// 韓国
+	{ e: "SA", i: "JP", v: 311000 },	// サウジアラビア
+	{ e: "TW", i: "JP", v: 284000 },	// 台湾
+	{ e: "DE", i: "JP", v: 262000 },	// ドイツ
+	{ e: "TH", i: "JP", v: 255000 },	// タイ
+	{ e: "AE", i: "JP", v: 232000 },	// アラブ首長国連邦
+	{ e: "ID", i: "JP", v: 223000 }		// インドネシア
+]
+var controller = new GIO.Controller( container, config );
+controller.addData( data );
+controller.init();
+</script>
+</body>
+</html>
